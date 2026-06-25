@@ -85,7 +85,17 @@
     .hero-meta span:not(:last-child)::after { content: ""; margin-left: 18px; border-right: 1px solid #b8c6ca; }
 
     .profile-card { padding: 30px; background: var(--navy); color: #eaf3f3; border-radius: var(--radius); box-shadow: var(--shadow); }
-    .monogram { display: grid; place-items: center; width: 90px; height: 90px; margin-bottom: 22px; border-radius: 50%; background: #eaf5f0; color: var(--navy); font-size: 1.6rem; font-weight: 900; letter-spacing: .06em; }
+    .profile-photo {
+      width: 110px;
+      height: 110px;
+      display: block;
+      margin: 0 0 22px;
+      border: 4px solid #eaf5f0;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      background: #eaf5f0;
+    }
     .profile-card h2, .profile-card h3 { color: #fff; }
     .profile-role { margin: 0; font-size: 1.1rem; font-weight: 780; color: #fff; }
     .profile-role-sub { margin: 3px 0 20px; color: #b8d2d2; }
@@ -201,7 +211,7 @@
         <div>
           <p class="eyebrow">Wireless systems · cybersecurity · spectrum coexistence</p>
           <h1>Advancing secure, resilient, and spectrum-aware 5G/6G systems.</h1>
-          <p class="hero-intro">I am a Ph.D. Candidate in Information Technology and Graduate Teaching Assistant at George Mason University. My research combines wireless security, shared-spectrum resilience, and experimental systems to help future cellular and unlicensed networks support critical applications with greater reliability and trust.</p>
+          <p class="hero-intro">I am a Ph.D. Candidate in Information Technology and Graduate Research Assistant at George Mason University. My research combines wireless security, shared-spectrum resilience, and experimental systems to help future cellular and unlicensed networks support critical applications with greater reliability and trust.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#research">Explore research</a>
             <a class="button button-secondary" href="https://nil0819.github.io/mdrashedurrahman.github.io/assets/docs/Md_Rashedur_Rahman_CV.pdf" target="_blank" rel="noopener">Download CV</a>
@@ -214,9 +224,13 @@
         </div>
 
         <aside class="profile-card" aria-label="Profile summary">
-          <div class="monogram" aria-hidden="true" src="assets/images/IMG_5291-2.JPG"></div>
+          <img
+            class="profile-photo"
+            src="assets/images/IMG_5291-2.JPG"
+            alt="Portrait of Md Rashedur Rahman"
+          >
           <p class="profile-role">Wireless Security Researcher</p>
-          <p class="profile-role-sub">Ph.D. Candidate</p>
+          <p class="profile-role-sub">Ph.D. Candidate · Graduate Research Assistant</p>
           <dl class="facts">
             <div><dt>Focus</dt><dd>5G/6G security, unlicensed spectrum, and wireless resilience</dd></div>
             <div><dt>Methods</dt><dd>Analytical modeling, simulation, and SDR-enabled experimentation</dd></div>
@@ -357,8 +371,9 @@
           <a class="email" href="mailto:mrahma47@gmu.edu">mrahma47@gmu.edu</a>
           <p class="contact-note">Fairfax, Virginia, USA</p>
           <div class="profile-links">
+            <a href="https://www.linkedin.com/in/md-rashedur-rahman/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://scholar.google.com/citations?user=V_BsahgAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
             <a href="https://github.com/nil0819" target="_blank" rel="noopener">GitHub</a>
-            <!-- Add your LinkedIn and Google Scholar links here when ready. -->
           </div>
         </div>
       </div>
