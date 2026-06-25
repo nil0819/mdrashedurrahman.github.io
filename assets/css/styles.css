@@ -190,7 +190,11 @@
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="#home" aria-label="Md Rashedur Rahman home">
-        <span class="brand-mark">MRR</span>
+        <img
+class="brand-mark"
+src="assets/images/IMG_5291-2.JPG"
+alt=""
+style="object-fit: cover;">
         <span class="brand-text">Md Rashedur Rahman</span>
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
