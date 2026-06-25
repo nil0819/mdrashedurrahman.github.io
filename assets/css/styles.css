@@ -1,165 +1,409 @@
-:root {
-  --ink: #102a38;
-  --muted: #58707d;
-  --paper: #ffffff;
-  --mist: #f2f6f5;
-  --accent: #1d6b5d;
-  --accent-dark: #125047;
-  --line: #dce6e3;
-  --warm: #f1b868;
-  --shadow: 0 18px 50px rgba(24, 52, 61, 0.10);
-  --radius: 18px;
-  --content: min(1140px, calc(100% - 40px));
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Md Rashedur Rahman — Ph.D. Candidate researching secure, resilient, spectrum-aware 5G/6G wireless systems.">
+  <meta name="theme-color" content="#0b2230">
+  <title>Md Rashedur Rahman | Wireless Security Researcher</title>
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 16px;
-  line-height: 1.65;
-}
-a { color: inherit; }
-a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--warm); outline-offset: 4px; }
-.container { width: var(--content); margin: 0 auto; }
-.skip-link { position: absolute; left: -999px; top: 12px; z-index: 30; background: var(--ink); color: #fff; padding: 8px 12px; border-radius: 7px; }
-.skip-link:focus { left: 12px; }
+  <style>
+    :root {
+      --navy: #0b2230;
+      --navy-2: #123d4c;
+      --teal: #0f766e;
+      --teal-light: #dff5ef;
+      --ink: #16232b;
+      --muted: #5e7079;
+      --line: #d9e3e6;
+      --surface: #ffffff;
+      --surface-soft: #f4f8f7;
+      --shadow: 0 16px 40px rgba(11, 34, 48, 0.10);
+      --radius: 18px;
+      --max: 1160px;
+    }
 
-.site-header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.92); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(220,230,227,.85); }
-.nav-wrap { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; letter-spacing: -.02em; }
-.brand-mark { display: inline-grid; place-items: center; width: 35px; height: 35px; border-radius: 10px; color: #fff; background: var(--ink); font-size: .72rem; letter-spacing: .03em; }
-.brand-text { white-space: nowrap; }
-.site-nav { display: flex; gap: 22px; align-items: center; }
-.site-nav a { color: #38515c; text-decoration: none; font-size: .94rem; font-weight: 700; }
-.site-nav a:hover { color: var(--accent); }
-.menu-toggle { display: none; background: none; border: 1px solid var(--line); color: var(--ink); font: inherit; padding: 8px 12px; border-radius: 8px; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--surface);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
 
-.section { padding: 98px 0; }
-.section-muted { background: var(--mist); }
-.section-accent { background: linear-gradient(120deg, #f5faf8 0%, #eef5f3 55%, #e5f0ec 100%); }
-.eyebrow { margin: 0 0 12px; color: var(--accent); font-size: .76rem; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
-h1, h2, h3, p { margin-top: 0; }
-h1, h2, h3 { color: var(--ink); line-height: 1.15; letter-spacing: -.035em; }
-h1 { max-width: 720px; margin-bottom: 24px; font-size: clamp(2.55rem, 6vw, 5.1rem); }
-h2 { max-width: 720px; margin-bottom: 18px; font-size: clamp(2rem, 3.7vw, 3.2rem); }
-h3 { margin-bottom: 10px; font-size: 1.28rem; }
-.section-intro { max-width: 780px; margin-bottom: 42px; color: var(--muted); font-size: 1.06rem; }
+    a { color: inherit; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .skip-link {
+      position: absolute; left: -999px; top: 10px; z-index: 100;
+      background: #fff; padding: 10px 14px; border-radius: 8px;
+    }
+    .skip-link:focus { left: 10px; }
 
-.hero { padding: 90px 0 92px; }
-.hero-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(290px, .72fr); align-items: center; gap: 70px; }
-.hero-intro { max-width: 720px; margin-bottom: 30px; color: #3f5962; font-size: 1.12rem; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
-.button { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 10px 16px; border: 1px solid transparent; border-radius: 9px; text-decoration: none; font-size: .93rem; font-weight: 800; }
-.button-primary { color: #fff; background: var(--accent); }
-.button-primary:hover { background: var(--accent-dark); }
-.button-secondary { border-color: #a1b7b0; color: var(--ink); background: rgba(255,255,255,.5); }
-.button-secondary:hover { border-color: var(--accent); color: var(--accent-dark); }
-.hero-meta { display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--muted); font-size: .86rem; font-weight: 700; }
-.hero-meta span:not(:last-child)::after { content: ""; width: 4px; height: 4px; margin-left: 18px; display: inline-block; vertical-align: middle; background: var(--warm); border-radius: 100%; }
-.profile-card { padding: 34px; border: 1px solid #dbe8e3; border-radius: var(--radius); background: rgba(255,255,255,.73); box-shadow: var(--shadow); }
-.portrait-monogram { display: grid; place-items: center; width: 94px; height: 94px; margin-bottom: 24px; border: 5px solid rgba(29,107,93,.14); border-radius: 50%; background: var(--ink); color: #fff; font-size: 1.45rem; font-weight: 850; letter-spacing: .05em; }
-.profile-role { margin-bottom: 4px; font-size: 1.18rem; font-weight: 850; line-height: 1.3; }
-.profile-role-sub { margin-bottom: 22px; color: var(--muted); font-size: .93rem; }
-.profile-facts { display: grid; margin: 0; border-top: 1px solid var(--line); }
-.profile-facts div { padding: 14px 0; border-bottom: 1px solid var(--line); }
-.profile-facts dt { margin-bottom: 2px; color: var(--accent); font-size: .72rem; font-weight: 850; text-transform: uppercase; letter-spacing: .09em; }
-.profile-facts dd { margin: 0; color: #415b65; font-size: .9rem; line-height: 1.45; }
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,.95); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-wrap { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; font-weight: 800; }
+    .brand-mark {
+      display: grid; place-items: center; width: 39px; height: 39px; border-radius: 12px;
+      color: #fff; background: var(--navy); font-size: .78rem; letter-spacing: .06em;
+    }
+    .brand-text { color: var(--navy); font-size: .98rem; }
+    .site-nav { display: flex; align-items: center; gap: 20px; }
+    .site-nav a { text-decoration: none; color: #40525a; font-weight: 650; font-size: .92rem; }
+    .site-nav a:hover, .site-nav a:focus { color: var(--teal); }
+    .menu-toggle {
+      display: none; border: 1px solid var(--line); background: #fff; padding: 8px 12px;
+      border-radius: 9px; font: inherit; font-weight: 700; cursor: pointer;
+    }
 
-.split-section { display: grid; grid-template-columns: minmax(230px,.9fr) minmax(0,1.45fr); gap: 80px; }
-.prose p { color: #445d66; font-size: 1.06rem; }
-.facts-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 32px; }
-.facts-grid article { padding: 18px; background: var(--mist); border-radius: 12px; }
-.facts-grid strong { display: block; margin-bottom: 2px; color: var(--accent); font-size: 1.25rem; line-height: 1.2; }
-.facts-grid span { color: var(--muted); font-size: .84rem; line-height: 1.35; }
+    .hero { padding: 94px 0 78px; background: linear-gradient(145deg, #edf8f5 0%, #ffffff 61%); }
+    .hero-grid { display: grid; grid-template-columns: 1.4fr .8fr; gap: 54px; align-items: center; }
+    .eyebrow {
+      margin: 0 0 13px; color: var(--teal); font-size: .78rem; font-weight: 850;
+      letter-spacing: .13em; text-transform: uppercase;
+    }
+    h1, h2, h3 { color: var(--navy); line-height: 1.16; }
+    h1 { margin: 0; max-width: 790px; font-size: clamp(2.25rem, 5vw, 4.5rem); letter-spacing: -.045em; }
+    h2 { margin: 0 0 18px; font-size: clamp(1.75rem, 3vw, 2.7rem); letter-spacing: -.035em; }
+    h3 { margin: 0 0 8px; font-size: 1.13rem; }
+    p { margin: 0 0 16px; }
+    .hero-intro { margin-top: 23px; max-width: 800px; color: #3c5058; font-size: 1.12rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .button {
+      display: inline-flex; justify-content: center; align-items: center; padding: 12px 18px; border-radius: 10px;
+      text-decoration: none; font-weight: 800; transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(11,34,48,.14); }
+    .button-primary { background: var(--navy); color: #fff; }
+    .button-secondary { background: #fff; color: var(--navy); border: 1px solid #bccbd0; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 9px 18px; margin-top: 25px; color: var(--muted); font-weight: 650; font-size: .9rem; }
+    .hero-meta span:not(:last-child)::after { content: ""; margin-left: 18px; border-right: 1px solid #b8c6ca; }
 
-.teaching-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 22px; margin-top: 38px; }
-.feature-card { padding: 30px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
-.feature-card-wide { background: linear-gradient(135deg, #163c49 0%, #0f5860 100%); border: none; color: rgba(255,255,255,.86); }
-.feature-card-wide h3 { color: #fff; }
-.check-list { display: grid; gap: 9px; padding: 0; margin: 0; list-style: none; color: #4b626a; }
-.check-list li { position: relative; padding-left: 21px; }
-.check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 900; }
-.pill-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-.pill-group span { padding: 8px 12px; border: 1px solid #d6e1dd; border-radius: 999px; background: rgba(255,255,255,.65); color: #45606a; font-size: .87rem; font-weight: 650; }
+    .profile-card { padding: 30px; background: var(--navy); color: #eaf3f3; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .profile-photo {
+      width: 110px;
+      height: 110px;
+      display: block;
+      margin: 0 0 22px;
+      border: 4px solid #eaf5f0;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      background: #eaf5f0;
+    }
+    .profile-card h2, .profile-card h3 { color: #fff; }
+    .profile-role { margin: 0; font-size: 1.1rem; font-weight: 780; color: #fff; }
+    .profile-role-sub { margin: 3px 0 20px; color: #b8d2d2; }
+    .facts { display: grid; gap: 15px; margin: 0; }
+    .facts div { padding-top: 14px; border-top: 1px solid rgba(255,255,255,.18); }
+    .facts dt { color: #9bd9ca; font-size: .75rem; font-weight: 850; text-transform: uppercase; letter-spacing: .08em; }
+    .facts dd { margin: 3px 0 0; font-size: .94rem; line-height: 1.45; }
 
-.research-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
-.topic-card { min-height: 243px; padding: 24px; border: 1px solid var(--line); border-radius: 14px; background: #fff; transition: transform .22s ease, box-shadow .22s ease; }
-.topic-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(17, 45, 56,.10); }
-.topic-number { display: block; margin-bottom: 34px; color: var(--accent); font-weight: 850; letter-spacing: .1em; }
-.topic-card p { margin-bottom: 0; color: var(--muted); font-size: .93rem; line-height: 1.55; }
-.tools-row { margin-top: 24px; padding: 18px 22px; border-left: 4px solid var(--warm); border-radius: 4px 10px 10px 4px; background: var(--mist); color: #496069; }
-.tools-row p { margin: 0; }
+    .section { padding: 82px 0; }
+    .section-soft { background: var(--surface-soft); }
+    .section-intro { max-width: 800px; color: #4b5e66; font-size: 1.04rem; }
+    .split { display: grid; grid-template-columns: .85fr 1.15fr; gap: 58px; }
+    .prose { color: #42565e; }
+    .fact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 28px; }
+    .fact-grid article { padding: 19px; background: #fff; border: 1px solid var(--line); border-radius: 13px; }
+    .fact-grid strong { display: block; color: var(--teal); font-size: 1.45rem; }
+    .fact-grid span { display: block; margin-top: 3px; color: var(--muted); font-size: .88rem; line-height: 1.4; }
 
-.section-heading-row { display: flex; justify-content: space-between; gap: 32px; align-items: end; margin-bottom: 32px; }
-.text-link { color: var(--accent-dark); text-decoration: none; font-weight: 850; white-space: nowrap; }
-.text-link:hover { text-decoration: underline; }
-.publication-list { display: grid; gap: 16px; padding-left: 24px; margin: 0; }
-.publication-list li { padding: 3px 0 16px 7px; border-bottom: 1px solid var(--line); }
-.pub-title { margin-bottom: 4px; color: var(--ink); font-weight: 800; line-height: 1.38; }
-.pub-meta { margin-bottom: 0; color: var(--muted); font-size: .91rem; line-height: 1.5; }
-.publication-details { margin-top: 20px; }
-.publication-details summary { cursor: pointer; color: var(--accent-dark); font-weight: 850; }
-.additional-publications { margin-top: 18px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 31px; }
+    .card { padding: 23px; background: #fff; border: 1px solid var(--line); border-radius: 15px; }
+    .card:hover { border-color: #a9c5c0; box-shadow: 0 10px 28px rgba(11,34,48,.06); }
+    .card-number { display: inline-flex; padding: 4px 8px; margin-bottom: 18px; border-radius: 7px; background: var(--teal-light); color: #0b635d; font-size: .76rem; font-weight: 900; }
+    .card p { margin: 0; color: #52646b; font-size: .95rem; line-height: 1.55; }
+    .tools { margin-top: 26px; padding: 21px 23px; border-left: 4px solid var(--teal); background: #ecf8f4; border-radius: 0 12px 12px 0; color: #40555c; }
 
-.timeline { border-left: 1px solid #b5c9c1; padding-left: 28px; }
-.timeline-item { position: relative; padding-bottom: 27px; }
-.timeline-item::before { content: ""; position: absolute; left: -34px; top: 5px; width: 11px; height: 11px; border: 3px solid #fff; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 1px #b5c9c1; }
-.timeline-item:last-child { padding-bottom: 0; }
-.timeline-date { margin-bottom: 3px; color: var(--accent); font-size: .77rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
-.timeline-item h3 { margin-bottom: 2px; }
-.timeline-place { margin-bottom: 9px; color: #597078; font-size: .91rem; font-weight: 700; }
-.timeline-item > p:last-child { margin-bottom: 0; color: #49616a; }
+    .publication-list { display: grid; gap: 14px; padding: 0; margin: 28px 0 0; list-style: none; }
+    .publication-list li { padding: 19px 20px; background: #fff; border: 1px solid var(--line); border-radius: 12px; }
+    .pub-title { margin: 0 0 6px; color: var(--navy); font-weight: 780; line-height: 1.4; }
+    .pub-meta { margin: 0; color: var(--muted); font-size: .91rem; }
+    details { margin-top: 18px; padding: 0 18px 18px; background: #fff; border: 1px solid var(--line); border-radius: 12px; }
+    summary { padding: 17px 0; cursor: pointer; color: var(--teal); font-weight: 820; }
 
-.service-section { padding-top: 78px; padding-bottom: 78px; background: #143744; color: #dbe8e4; }
-.service-section .eyebrow { color: var(--warm); }
-.service-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 34px; }
-.service-grid article { border-top: 1px solid rgba(219,232,228,.3); padding-top: 18px; }
-.service-grid h3 { color: #fff; }
-.service-grid p { margin-bottom: 0; font-size: .93rem; line-height: 1.6; }
+    .timeline { display: grid; gap: 21px; }
+    .timeline-item { padding-left: 21px; border-left: 3px solid #a4d6ca; }
+    .timeline-date { margin: 0 0 4px; color: var(--teal); font-weight: 820; font-size: .84rem; }
+    .timeline-place { margin: 0 0 8px; color: var(--muted); font-weight: 650; }
+    .timeline-item p:last-child { margin-bottom: 0; color: #4c6067; }
 
-.contact-section { background: linear-gradient(110deg, #f6fbf9 0%, #e9f5ef 100%); }
-.contact-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 70px; align-items: center; }
-.contact-grid > div > p:not(.eyebrow) { color: #48606a; font-size: 1.05rem; }
-.contact-panel { padding: 32px; border: 1px solid #d0e0da; border-radius: var(--radius); background: #fff; box-shadow: var(--shadow); }
-.contact-email { color: var(--ink); font-size: clamp(1.3rem, 3vw, 1.85rem); font-weight: 850; text-decoration: none; overflow-wrap: anywhere; }
-.contact-email:hover { color: var(--accent); }
-.contact-note { margin: 7px 0 22px; color: var(--muted); }
-.profile-links { display: flex; flex-wrap: wrap; gap: 10px; }
-.profile-links a { display: inline-flex; gap: 8px; padding: 7px 10px; border-radius: 7px; background: var(--mist); color: var(--accent-dark); font-size: .86rem; font-weight: 780; text-decoration: none; }
-.profile-links a:hover { background: #dcece7; }
-.profile-links span { color: #7a8d92; font-size: .75rem; font-weight: 650; }
+    .teaching-grid { display: grid; grid-template-columns: 1.3fr .8fr; gap: 18px; margin-top: 28px; }
+    .feature-card { padding: 26px; background: #fff; border: 1px solid var(--line); border-radius: 15px; }
+    .feature-card p { color: #50636b; }
+    .check-list { margin: 0; padding-left: 20px; color: #44575f; }
+    .check-list li { margin: 8px 0; }
+    .pill-group { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 21px; }
+    .pill-group span { padding: 7px 10px; background: #fff; border: 1px solid var(--line); border-radius: 99px; color: #53676e; font-size: .85rem; font-weight: 650; }
 
-.site-footer { padding: 26px 0; background: #0d2832; color: #cbd9d5; font-size: .86rem; }
-.footer-content { display: flex; justify-content: space-between; gap: 14px; align-items: center; }
-.footer-content p { margin: 0; }
-.footer-content a { color: #fff; text-decoration: none; font-weight: 750; }
-.footer-content a:hover { color: var(--warm); }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .service-grid article { padding: 24px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+    .service-grid p { margin: 0; color: #50646c; }
 
-@media (max-width: 900px) {
-  .hero-grid, .split-section, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-  .profile-card { max-width: 620px; }
-  .research-grid { grid-template-columns: repeat(2,1fr); }
-  .service-grid { grid-template-columns: 1fr; gap: 24px; }
-}
-@media (max-width: 700px) {
-  .section { padding: 72px 0; }
-  .hero { padding: 66px 0 70px; }
-  .site-nav { position: absolute; top: 72px; left: 0; right: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 20px 16px; border-bottom: 1px solid var(--line); background: #fff; }
-  .site-nav.is-open { display: flex; }
-  .site-nav a { padding: 10px 0; }
-  .menu-toggle { display: inline-flex; }
-  .brand-text { font-size: .92rem; }
-  .facts-grid, .teaching-grid, .research-grid { grid-template-columns: 1fr; }
-  .section-heading-row { align-items: flex-start; flex-direction: column; gap: 4px; }
-  .footer-content { flex-direction: column; align-items: flex-start; }
-  .profile-card, .feature-card, .contact-panel { padding: 24px; }
-}
-@media (max-width: 420px) {
-  :root { --content: min(100% - 28px, 1140px); }
-  .brand-text { max-width: 158px; overflow: hidden; text-overflow: ellipsis; }
-  .hero-meta span:not(:last-child)::after { margin-left: 9px; }
-}
+    .contact { background: var(--navy); color: #eaf3f3; }
+    .contact h2 { color: #fff; }
+    .contact p { color: #bed2d2; }
+    .contact-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 52px; align-items: center; }
+    .contact-card { padding: 26px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); border-radius: 15px; }
+    .email { display: inline-block; color: #fff; font-size: 1.16rem; font-weight: 850; text-decoration: none; word-break: break-word; }
+    .email:hover { color: #9be2d3; }
+    .contact-note { margin-top: 6px; font-size: .92rem; }
+    .profile-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+    .profile-links a { color: #dff7f1; text-decoration: none; font-weight: 750; border-bottom: 1px solid #7ac9ba; }
+
+    .footer { padding: 25px 0; background: #071820; color: #b6c9cb; font-size: .9rem; }
+    .footer-content { display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+    .footer p { margin: 0; }
+    .footer a { color: #d9f0ea; text-decoration: none; }
+
+    @media (max-width: 960px) {
+      .hero-grid, .split, .contact-grid { grid-template-columns: 1fr; }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .profile-card { max-width: 620px; }
+    }
+    @media (max-width: 760px) {
+      .container { width: min(var(--max), calc(100% - 28px)); }
+      .site-nav {
+        display: none; position: absolute; top: 72px; left: 0; right: 0; padding: 14px;
+        background: #fff; border-bottom: 1px solid var(--line); box-shadow: 0 12px 25px rgba(11,34,48,.08);
+      }
+      .site-nav.open { display: grid; gap: 0; }
+      .site-nav a { padding: 11px 14px; }
+      .menu-toggle { display: inline-block; }
+      .hero { padding: 68px 0 58px; }
+      .section { padding: 62px 0; }
+      .fact-grid, .grid-4, .teaching-grid, .service-grid { grid-template-columns: 1fr; }
+      .hero-meta span:not(:last-child)::after { display: none; }
+      .footer-content { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Md Rashedur Rahman home">
+        <span class="brand-mark">MRR</span>
+        <span class="brand-text">Md Rashedur Rahman</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+        <a href="#vision">Vision</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Wireless systems · cybersecurity · spectrum coexistence</p>
+          <h1>Advancing secure, resilient, and spectrum-aware 5G/6G systems.</h1>
+          <p class="hero-intro">I am a Ph.D. Candidate in Information Technology and Graduate Research Assistant at George Mason University. My research combines wireless security, shared-spectrum resilience, and experimental systems to help future cellular and unlicensed networks support critical applications with greater reliability and trust.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#research">Explore research</a>
+            <a class="button button-secondary" href="https://nil0819.github.io/mdrashedurrahman.github.io/assets/docs/Md_Rashedur_Rahman_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+          </div>
+          <div class="hero-meta" aria-label="Professional summary">
+            <span>Ph.D. Candidate</span>
+            <span>George Mason University</span>
+            <span>Fairfax, Virginia</span>
+          </div>
+        </div>
+
+        <aside class="profile-card" aria-label="Profile summary">
+          <img
+            class="profile-photo"
+            src="assets/images/IMG_5291-2.JPG"
+            alt="Portrait of Md Rashedur Rahman"
+          >
+          <p class="profile-role">Wireless Security Researcher</p>
+          <p class="profile-role-sub">Ph.D. Candidate · Graduate Research Assistant</p>
+          <dl class="facts">
+            <div><dt>Focus</dt><dd>5G/6G security, unlicensed spectrum, and wireless resilience</dd></div>
+            <div><dt>Methods</dt><dd>Analytical modeling, simulation, and SDR-enabled experimentation</dd></div>
+            <div><dt>Applications</dt><dd>Private networks, industrial systems, IoT, and next-generation connectivity</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section id="vision" class="section">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">Research vision</p>
+          <h2>Building trustworthy wireless infrastructure for a connected future.</h2>
+        </div>
+        <div class="prose">
+          <p>Next-generation wireless networks will increasingly connect industrial automation, critical infrastructure, autonomous systems, and large-scale IoT. These systems must operate efficiently in crowded spectrum environments while remaining secure against both known and evolving threats.</p>
+          <p>My long-term academic goal is to lead collaborative, student-engaged research on secure and resilient wireless systems. I aim to bridge theory, simulation, and experimentation to develop practical mechanisms for fair spectrum sharing, dependable access, privacy-preserving connectivity, and secure deployment of future 6G technologies.</p>
+          <div class="fact-grid" aria-label="Research profile at a glance">
+            <article><strong>11+</strong><span>Peer-reviewed publications</span></article>
+            <article><strong>5+ years</strong><span>Software and IT systems experience</span></article>
+            <article><strong>2022–present</strong><span>Graduate research at George Mason University</span></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="section section-soft">
+      <div class="container">
+        <p class="eyebrow">Research agenda</p>
+        <h2>Secure and resilient communication for 5G, 6G, and beyond.</h2>
+        <p class="section-intro">My work lies at the intersection of cybersecurity, wireless communication, and IoT. It examines how future networks can share spectrum fairly, detect malicious behavior, and deliver reliable services in environments where failures or attacks can have real operational consequences.</p>
+        <div class="grid-4">
+          <article class="card"><span class="card-number">01</span><h3>Coexistence security and spectrum access</h3><p>Characterizing vulnerabilities in unlicensed and shared spectrum, including 5G NR-U and Wi-Fi coexistence, and designing mechanisms for fair, dependable channel access.</p></article>
+          <article class="card"><span class="card-number">02</span><h3>Anomaly-aware resilience</h3><p>Developing detection, mitigation, and adaptive access approaches that preserve throughput, reduce harmful interference, and improve resilience under adversarial behavior.</p></article>
+          <article class="card"><span class="card-number">03</span><h3>Private 5G/6G and critical applications</h3><p>Securing wireless connectivity for industrial automation, critical infrastructure, and IoT deployments where reliability, latency, and safety matter.</p></article>
+          <article class="card"><span class="card-number">04</span><h3>Emerging 6G security directions</h3><p>Extending this agenda toward secure mmWave/THz systems, UAV/UAS communications, RIS-assisted links, and physical-layer security for future autonomous networks.</p></article>
+        </div>
+        <p class="tools"><strong>Research approach and platforms:</strong> I combine analytical and stochastic models with network simulation and wireless testbed experimentation. My workflow includes Python, ns-3, SimPy, MATLAB, OMNeT++, OpenAirInterface, software-defined radio platforms, Linux, Wireshark, Git/GitHub, SQL, Java, C++, C#, and Swift.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">Representative contributions</p>
+        <h2>From vulnerabilities to adaptive resilience.</h2>
+        <p class="section-intro">Across my recent work, I investigate how timing, channel access, mobility, and anomalous energy behavior can be exploited in shared-spectrum networks—and how those systems can be strengthened without sacrificing fairness.</p>
+        <div class="grid-4">
+          <article class="card"><span class="card-number">2026</span><h3>Ghost Rider</h3><p>An anomaly-aware hybrid reservation and self-deferral framework that strengthens 5G/B5G operation in the 5 GHz unlicensed band.</p></article>
+          <article class="card"><span class="card-number">2025</span><h3>Z-Force</h3><p>A Z-score-powered anomaly-detection framework for promoting fair 5G NR-U and Wi-Fi coexistence in the 5 GHz band.</p></article>
+          <article class="card"><span class="card-number">2024–2025</span><h3>CAD and RanCAD</h3><p>Attack models that expose channel-access deterrence vulnerabilities affecting NR-U and Wi-Fi coexistence in unlicensed spectrum.</p></article>
+          <article class="card"><span class="card-number">2023</span><h3>PACMAN</h3><p>A mobility-powered attack model for private 5G-enabled industrial automation, highlighting security risks in critical wireless deployments.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" class="section section-soft">
+      <div class="container">
+        <p class="eyebrow">Publications</p>
+        <h2>Selected peer-reviewed work</h2>
+        <ol class="publication-list">
+          <li><p class="pub-title">Ghost Rider: Anomaly-Aware Hybrid Reservation and Self-Deferral Framework for 5G/B5G Unlicensed in the 5 GHz Spectrum Band</p><p class="pub-meta">M. R. Rahman and P. Costa · IEEE International Conference on Communications (ICC), 2026</p></li>
+          <li><p class="pub-title">Z-Force: A Z-Score-Powered Anomaly Detection Framework for Fair 5G NR-U &amp; Wi-Fi Coexistence in the 5 GHz Band</p><p class="pub-meta">M. R. Rahman and P. Costa · IEEE Dynamic Spectrum Access Networks (DySPAN), 2025</p></li>
+          <li><p class="pub-title">Channel Access Deterrence Attack: An Attack against Spectrum Coexistence between NR-U and Wi-Fi in the 5 GHz Band</p><p class="pub-meta">M. R. Rahman and M. Hossain · IEEE International Conference on Computer Communications (INFOCOM), 2025</p></li>
+          <li><p class="pub-title">RanCAD: Random Channel Access Deterrence Attack against Spectrum Coexistence between NR-U and Wi-Fi on the 5 GHz Unlicensed Band</p><p class="pub-meta">M. R. Rahman and M. Hossain · IEEE International Conference on Communications (ICC), 2024</p></li>
+          <li><p class="pub-title">PACMAN Attack: A Mobility-Powered Attack in Private 5G-Enabled Industrial Automation System</p><p class="pub-meta">M. R. Rahman, M. Hossain, and J. Xie · IEEE International Conference on Communications (ICC), 2023</p></li>
+        </ol>
+        <details>
+          <summary>Show additional publications</summary>
+          <ol class="publication-list">
+            <li><p class="pub-title">I Don’t Know Why You Need My Data: A Case Study of Popular Social Media Privacy Policies</p><p class="pub-meta">E. Miller, M. R. Rahman, M. Hossain, and A. I. Ali-Gombe · ACM CODASPY, 2022</p></li>
+            <li><p class="pub-title">Intent-Aware Permission Architecture: A Model for Rethinking Informed Consent for Android Apps</p><p class="pub-meta">M. R. Rahman, E. Miller, M. Hossain, and A. I. Ali-Gombe · ICISSP, 2022</p></li>
+            <li><p class="pub-title">ASRPH: Application Specific Routing Protocol for Health Care</p><p class="pub-meta">M. R. Rahman, M. M. Islam, A. I. Pritom, and Y. Alsaawy · Computer Networks, 2021</p></li>
+            <li><p class="pub-title">Combining Movement Model with Finger-Stroke Level Model towards Designing a Security Enhancing Mobile Friendly CAPTCHA</p><p class="pub-meta">A. I. Pritom, M. Z. Chowdhury, J. Protim, S. Roy, M. R. Rahman, and S. M. Promi · ICSCA, 2020</p></li>
+            <li><p class="pub-title">Development of a Tangent Based Robust Speech Feature Extraction Model</p><p class="pub-meta">M. T. Hosain, A. Al Arif, A. I. Pritom, M. R. Rahman, and M. Z. Islam · ICONCS, 2020</p></li>
+            <li><p class="pub-title">Application Specific Energy Aware and Reliable Routing Protocol for Wireless Sensor Network</p><p class="pub-meta">M. R. Rahman, M. M. Islam, E. A. Shahaz, and Y. Alsaawy · ICSCC, 2019</p></li>
+          </ol>
+        </details>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">Academic experience</p>
+          <h2>Research grounded in simulation, systems, and real-world software development.</h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item"><p class="timeline-date">Aug. 2022 – Present</p><h3>Graduate Research Assistant</h3><p class="timeline-place">George Mason University · Fairfax, VA</p><p>Conducting interdisciplinary research in wireless security, 5G/6G, Wi-Fi, IoT, and shared-spectrum systems. Designing attack models, anomaly-detection methods, and resilience mechanisms through simulation and wireless testbed experiments.</p></article>
+          <article class="timeline-item"><p class="timeline-date">Jan. 2021 – Aug. 2022</p><h3>Graduate Assistant</h3><p class="timeline-place">Towson University · Towson, MD</p><p>Investigated Android privacy and informed-consent issues and developed simulation environments for security vulnerabilities in heterogeneous spectrum coexistence.</p></article>
+          <article class="timeline-item"><p class="timeline-date">Jan. 2018 – Jun. 2021</p><h3>Independent Researcher — Healthcare Wireless Sensor Networks</h3><p class="timeline-place">Independent Research Project · Gazipur, Bangladesh</p><p>Designed application-specific routing approaches for healthcare sensing, emphasizing reliable delivery, energy efficiency, network lifetime, and throughput; resulting in peer-reviewed conference and journal publications.</p></article>
+        </div>
+      </div>
+
+      <div class="container" style="margin-top:56px">
+        <p class="eyebrow">Industry perspective</p>
+        <h2>Experience building production-oriented software and IT systems.</h2>
+        <div class="grid-4">
+          <article class="card"><span class="card-number">2020–2021</span><h3>Programmer · icddr,b</h3><p>Developed Android data-collection applications and reporting tools for public-health research involving emerging infectious-disease studies.</p></article>
+          <article class="card"><span class="card-number">2018–2020</span><h3>Senior Officer, IT · Impress Capital</h3><p>Built mobile applications, APIs, web applications, and internal automation tools while supporting secure IT and server operations.</p></article>
+          <article class="card"><span class="card-number">2016–2017</span><h3>Software Engineer · i-clique Solutions</h3><p>Contributed to credit-card management software for banking clients and supported technical onboarding for new team members.</p></article>
+          <article class="card"><span class="card-number">Perspective</span><h3>Research with practical context</h3><p>My industry background informs research questions that connect rigorous wireless-systems ideas with deployability, operations, and end-user needs.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="teaching" class="section section-soft">
+      <div class="container">
+        <p class="eyebrow">Teaching and mentoring</p>
+        <h2>Preparing technically capable, thoughtful engineers and IT professionals.</h2>
+        <div class="teaching-grid">
+          <article class="feature-card"><h3>Research-informed, student-centered learning</h3><p>I view teaching and mentorship as integral to academic research. I emphasize clear explanations, active problem-solving, constructive feedback, and connections between foundational theory and contemporary systems challenges.</p><p>As a Graduate Teaching Assistant in George Mason University’s Department of Cyber Security Engineering, I have supported labs, grading, office hours, technical troubleshooting, and student communication across undergraduate and graduate technical courses.</p></article>
+          <article class="feature-card"><h3>Courses and subjects supported</h3><ul class="check-list"><li>Computer Networking</li><li>Operating Systems and Linux</li><li>Secure RF Communications</li><li>Industrial Control Systems Security</li><li>Critical Infrastructure Protection</li><li>CYSE 230 and CYSE 425 accelerated offerings</li></ul></article>
+        </div>
+        <div class="pill-group" aria-label="Teaching and mentoring areas"><span>Computer Networking</span><span>Operating Systems</span><span>Linux Systems</span><span>Cybersecurity Fundamentals</span><span>Cloud &amp; Virtualization</span><span>Wireless &amp; Mobile Systems</span><span>Database Systems</span><span>Java &amp; Python</span><span>Web &amp; Mobile Development</span><span>Software Engineering</span><span>Internet of Things</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">Service and recognition</p>
+        <div class="service-grid">
+          <article><h3>Professional service</h3><p>Peer Reviewer, IEEE Transactions on Mobile Computing (2025); review committee service for ACDSA 2026, ICECET 2026, and ICECCME 2026.</p></article>
+          <article><h3>Conference service</h3><p>Volunteer, IEEE DySPAN 2026; Volunteer, International Chinese Statistical Association (ICSA) 2026.</p></article>
+          <article><h3>Recognition and leadership</h3><p>IEEE DySPAN Student Travel Grant (2025). Vice President (Administration), Bangladesh Graduate Student Association at George Mason University, 2024–2025.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow" style="color:#9be2d3">Contact</p>
+          <h2>Research collaboration and academic opportunities.</h2>
+          <p>I welcome conversations about research collaboration, postdoctoral opportunities, tenure-track Assistant Professor roles, and interdisciplinary projects in wireless systems, cybersecurity, and next-generation networks.</p>
+        </div>
+        <div class="contact-card">
+          <a class="email" href="mailto:mrahma47@gmu.edu">mrahma47@gmu.edu</a>
+          <p class="contact-note">Fairfax, Virginia, USA</p>
+          <div class="profile-links">
+            <a href="https://www.linkedin.com/in/md-rashedur-rahman/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://scholar.google.com/citations?user=V_BsahgAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+            <a href="https://github.com/nil0819" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© <span id="year"></span> Md Rashedur Rahman. All rights reserved.</p>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.site-nav');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    nav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
