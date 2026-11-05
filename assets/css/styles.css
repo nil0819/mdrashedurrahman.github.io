@@ -347,6 +347,8 @@ details[open] .publication-list { margin-top: 24px; animation: rise .45s ease bo
 .footer { margin-top: 12px; padding: 40px 24px; background: var(--gray); text-align: center; font-size: .94rem; }
 .footer p { margin: 0; }
 .footer a { color: var(--ink); margin-left: 12px; }
+.footer .footer-credit { margin-top: 6px; color: var(--muted); font-size: .86rem; }
+.footer .footer-credit a { margin-left: 0; color: inherit; }
 
 /* Motion */
 .intro { animation: rise .7s ease both; }
