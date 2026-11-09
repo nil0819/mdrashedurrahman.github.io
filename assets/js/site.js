@@ -58,7 +58,7 @@
   }
   setActive('home');
 
-  /* ---------- Scroll reveal, count-ups and section tracking ---------- */
+  /* ---------- Count-ups and section tracking ---------- */
   var counters = document.querySelectorAll('[data-count]');
   function runCounter(el) {
     var target = Number(el.dataset.count);
@@ -74,24 +74,6 @@
 
   if ('IntersectionObserver' in window) {
     if (!reduceMotion) {
-      root.classList.add('js');
-      var revealer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          var el = entry.target;
-          el.classList.add('is-visible');
-          revealer.unobserve(el);
-          // Hand control back to the normal hover transition once it has landed.
-          setTimeout(function () { el.classList.add('is-settled'); }, 900);
-        });
-      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
-
-      document.querySelectorAll('.reveal').forEach(function (el) {
-        var siblings = Array.prototype.filter.call(el.parentElement.children, function (c) { return c.classList.contains('reveal'); });
-        el.style.setProperty('--delay', Math.min(siblings.indexOf(el), 4) * 0.07 + 's');
-        revealer.observe(el);
-      });
-
       var countWatcher = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (!entry.isIntersecting) return;

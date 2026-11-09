@@ -353,11 +353,6 @@ details[open] .publication-list { margin-top: 24px; animation: rise .45s ease bo
 /* Motion */
 .intro { animation: rise .7s ease both; }
 .sidebar { animation: rise .7s ease both; }
-.js .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; transition-delay: var(--delay, 0s); }
-.js .reveal.is-visible { opacity: 1; transform: none; }
-/* Cards animate in via .reveal, then need their own quick hover transition back. */
-.js .card.reveal.is-settled { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; transition-delay: 0s; }
-.js .card.reveal.is-settled:hover { transform: translateY(-4px); }
 
 @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 @keyframes ping { from { transform: scale(1); opacity: .9; } to { transform: scale(3.2); opacity: 0; } }
@@ -365,7 +360,6 @@ details[open] .publication-list { margin-top: 24px; animation: rise .45s ease bo
 @media (prefers-reduced-motion: reduce) {
   html.smooth-scroll { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  .js .reveal { opacity: 1; transform: none; }
 }
 
 /* Responsive */
@@ -398,5 +392,4 @@ details[open] .publication-list { margin-top: 24px; animation: rise .45s ease bo
 @media print {
   .site-header, .banner { display: none; }
   .sidebar { position: static; margin-top: 0; }
-  .js .reveal { opacity: 1; transform: none; }
 }
