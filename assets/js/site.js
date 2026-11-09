@@ -136,6 +136,8 @@
     layer.peaks.forEach(function (p, j) { p.phase = i * 1.7 + j * 2.3; });
   });
 
+  // How strongly the banner reacts to the cursor and clicks (1 = full effect).
+  var POINTER_INTENSITY = 0.2;
   var W = 0, H = 0, towers = [], nodes = [], ripples = [];
   var pointer = { x: 0, y: 0, strength: 0, target: 0 };
 
@@ -301,7 +303,7 @@
     ripples = ripples.filter(function (r) { return t - r.start < 1.6; });
     ripples.forEach(function (r) {
       var p = (t - r.start) / 1.6;
-      drawRing(r.x, r.y, 8 + p * H * 0.8, (1 - p) * 0.9, COLORS.amber);
+      drawRing(r.x, r.y, 8 + p * H * 0.8, (1 - p) * 0.9 * POINTER_INTENSITY, COLORS.amber);
     });
   }
 
@@ -318,7 +320,7 @@
     pointer.x = event.clientX - box.left;
     pointer.y = event.clientY - box.top;
   }
-  banner.addEventListener('pointermove', function (event) { locate(event); pointer.target = 1; });
+  banner.addEventListener('pointermove', function (event) { locate(event); pointer.target = POINTER_INTENSITY; });
   banner.addEventListener('pointerleave', function () { pointer.target = 0; });
   banner.addEventListener('pointerdown', function (event) {
     locate(event);
